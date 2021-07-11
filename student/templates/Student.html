@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Student Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}" />
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{% static 'jquery-ui-datepicker/jquery-ui.min.css' %}" type="text/css" />
+    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  <style>
+    #image{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width:25%;
+      border-radius: 100%;
+    }
+
+    #info{
+      margin-top: 2%;
+      text-align: left;
+      font-size: 24px;
+      color:  #000000;
+    }
+
+    table {
+      margin-top: 2%;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 2px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr{
+      font-size: 18px;
+    }
+
+    th{
+      font-size: 25px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+      color: black;
+    }
+
+    tr:nth-child(odd) {
+      color: white;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="" id="home">
+        <nav class="navbar navbar-expand-xl">
+            <div class="container h-100">
+                <a class="navbar-brand" href="/student/dashboard">
+                    <h1 class="tm-site-title mb-0" style="font-size: 24px;">Dashboard</h1>
+                </a>
+                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars tm-nav-icon"></i>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav navbar-nav offset-lg-10">
+                      <ul class="navbar-nav mx-auto h-100">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/student/login">
+                                <i class="fa fa-sign-out" style="color:white;"></i>
+                                Log Out
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+      </div>
+
+
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div><img src="{% static 'images/stud.jfif' %}" id="image"></div>
+            <div style="text-align: center; font-size: 30px; margin-top: 5%; color: black;"><p>{{ name }}</p></div>
+            <div class="row">
+            <div class="col-lg-6" id="info">
+              <p><b>Enrollment Number:</b> {{ enroll_no }}</p>
+              <p><b>Mobile Number:</b> {{ phone_no }}</p>
+              <p><b>Roll Number:</b> {{ roll_no }}</p>
+            </div>
+
+            <div class="col-lg-6" id="info">
+              <p><b>Email:</b> {{ email }}</p>
+              <p><b>Branch:</b> {{ branch }}</p>
+              <p><b>Shift:</b> {{ shift }}</p>
+            </div>
+            </div>
+
+            <div>
+              <table>
+              <tr>
+                <th>Book Name </th>
+                <th>Issue Date</th>
+                <th>Return Date</th>
+                <th>Fine</th>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>05/07/2021</td>
+                <td>Not returned </td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>02/04/2021</td>
+                <td>05/07/2021</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>Ernst Handel</td>
+                <td>02/04/2020</td>
+                <td>05/07/2021</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Island Trading</td>
+                <td>17/02/2000</td>
+                <td>22/05/2000</td>
+                <td>200</td>
+              </tr>
+              <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>17/02/2000</td>
+                <td>Not returned</td>
+                <td>17</td>
+              </tr>
+            </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="{% static 'jquery-ui-datepicker/jquery-ui.min.js' %}"></script>
+    <!-- https://jqueryui.com/download/ -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+      $(function() {
+        $("#expire_date").datepicker();
+      });
+    </script>
+  </body>
+</html>
